@@ -1,0 +1,119 @@
+web application/stitch/projects/36543702718973068/screens/d58a0737f817437bbe55eb300b730034
+# Design System & Specification: GoGrin Haircut & Shaves
+
+Dokumen ini merupakan panduan desain dan spesifikasi teknis antarmuka (*design tokens*, tipografi, palet warna, komponen, dan hierarki visual) yang diekstraksi dari desain landing page **GoGrin Haircut & Shaves**.
+
+---
+
+## 1. Brand Identity & Aesthetic Overview
+- **Brand Name**: GoGrin (Haircut & Shaves / Hair Salon)
+- **Brand Mood & Aesthetic**: Classic Vintage Barbershop, Maskulin, Warm Amber & Dark Luxury, Premium Grooming Experience.
+- **Visual Style**: Dark theme berlatar belakang foto warm barbershop dengan overlay gelap transparan, dipadukan dengan aksen warna emas/amber (*warm amber/mustard gold*) dan tipografi vintage bold condensed.
+
+---
+
+## 2. Color Palette
+
+### Primary & Accent Colors
+| Nama Token | HEX Code | Penggunaan |
+| :--- | :--- | :--- |
+| `--color-primary-amber` | `#D49A58` | Aksen emas/amber utama, tombol CTA utama, teks highlight, badge, garis border aktif |
+| `--color-primary-amber-hover` | `#E0A96B` | Hover state tombol utama dan tautan |
+| `--color-primary-amber-subtle` | `rgba(212, 154, 88, 0.15)` | Background lingkaran ikon / kartu aktif (*Hair Washing*) |
+
+### Neutral & Background Colors
+| Nama Token | HEX Code / RGBA | Penggunaan |
+| :--- | :--- | :--- |
+| `--color-bg-dark` | `#121315` | Latar belakang dasar halaman (*deep charcoal/black*) |
+| `--color-bg-card` | `rgba(28, 29, 33, 0.75)` | Kartu layanan dengan backdrop blur |
+| `--color-bg-card-border` | `rgba(212, 154, 88, 0.35)` | Border tipis emas pada kartu & tombol outline |
+| `--color-surface-translucent`| `rgba(255, 255, 255, 0.08)` | Background lingkaran ikon non-aktif / badge |
+
+### Text Colors
+| Nama Token | HEX Code | Penggunaan |
+| :--- | :--- | :--- |
+| `--color-text-primary` | `#FFFFFF` | Heading utama, nama brand, teks judul layanan |
+| `--color-text-secondary` | `#B5B5B7` | Subtitle, body text, deskripsi layanan |
+| `--color-text-accent` | `#D49A58` | Kata kunci aksen ("an old", "Provide", nama author kutipan) |
+| `--color-text-muted` | `#7E8085` | Label kecil, info copyright, placeholder pencarian |
+
+---
+
+## 3. Typography Scale
+
+### Font Families
+- **Display / Heading Font**: Bold Condensed Vintage Sans Serif (e.g., *Oswald*, *Bebas Neue*, atau *Barlow Condensed*), bernuansa industrial vintage barbershop.
+- **Body Font**: Clean Modern Sans-Serif (e.g., *Inter*, *Roboto*, atau *Montserrat*) untuk keterbacaan teks panjang.
+- **Badge / Serif Accent**: *Playfair Display* atau *Cinzel* (khusus emblem "HAIR SALON EST. 1980").
+
+### Type Hierarchy
+| Level | Font Weight / Transform | Ukuran Perkiraan | Line Height | Contoh Penggunaan |
+| :--- | :--- | :--- | :--- | :--- |
+| **Hero Display** | Bold (700) / Uppercase | `48px - 56px` | 1.15 | `GOGRIN HAIRCUT & SHAVES` |
+| **Section Title** | Bold (700) / Sentence/Title Case | `36px - 40px` | 1.2 | `You'll be sure to have an old fashioned time.` / `Service We Provide` |
+| **Sub-badge / Pre-title** | Semi-Bold (600) / Uppercase | `13px - 14px` | 1.4 | `GOGRIN BY THE BEST` / `OUR SERVICE` |
+| **Card / Item Title** | Bold (700) / Title Case | `18px - 20px` | 1.3 | `Clipper cut`, `Beard Trim`, `Face Shaver` |
+| **Body Text** | Regular (400) | `14px - 15px` | 1.6 | Teks deskripsi dan kutipan testimoni |
+| **Meta / Small CTA** | Medium (500) / Uppercase | `11px - 12px` | 1.4 | `READ MORE »`, `ABOUT US`, `NEWS FEED` |
+
+---
+
+## 4. UI Components & Layout Structure
+
+### 4.1 Header / Top Navigation Bar
+- **Layout**: Fixed/sticky atau transparent absolute di atas hero section.
+- **Elemen**:
+  - Logo kiri: Ikon gunting/sisir melingkar + teks brand **GoGrin**.
+  - Navigasi Tengah: Link menu (`HOME`, `ABOUT US`, `SERVICES`, `NEWS`, `SHOP`, `CONTACTS`) dengan uppercase, warna putih, spacing `28px`.
+  - Kontrol Kanan: Input pencarian tipis (*Search...* dengan border amber vertikal), ikon Search (kaca pembesar), ikon Shopping Cart, dan Hamburger Menu button (3 garis dengan border bulat/kotak).
+
+### 4.2 Hero Section
+- **Background**: Foto close-up barber sedang mencukur pelanggan, tone hangat dengan vignette gelap di sisi bawah.
+- **Emblem Vintage**: Logo stempel retro "HAIR SALON - EST. 1980" dengan ornamen gunting dan kumis.
+- **Headline**: "GOGRIN HAIRCUT & SHAVES" (huruf kapital tebal putih).
+- **Subheadline**: Teks 2 baris ("Humour is powerful. It drives emotion...").
+- **CTA Group**: 
+  - Tombol Utama: Solid amber rectangle/pill (`ABOUT US`).
+  - Tombol Sekunder: Dark/outline border (`NEWS FEED`).
+- **Slider Dots**: 3 titik indikator slide di bawah tombol.
+
+### 4.3 Circular Category Bar (Service Pills)
+- **Komponen**: Deretan 6 ikon melingkar horizontal:
+  1. *Hair Cutting* (Ikon gunting & sisir)
+  2. *Hair Washing* (Active state: background amber solid, ikon keramas putih)
+  3. *Shaving Style* (Ikon pisau lipat cukur)
+  4. *Body Massage* (Ikon garis kontur tubuh)
+  5. *Beauty & Spa* (Ikon siluet wajah wanita)
+  6. *Hair Color* (Ikon kuas pewarna rambut)
+- **States**: Lingkaran semi-transparan `rgba(255,255,255,0.08)` untuk default, dan solid amber `#D49A58` untuk active/hover.
+
+### 4.4 Feature / Story Section ("You'll be sure to have an old fashioned time")
+- **Layout**: 2 Kolom (Grid 50/50).
+- **Kolom Kiri**: Kolase foto 4 bingkai melingkar/persegi yang dihubungkan dengan elemen visual kompas/lingkaran dial vintage dan tombol play video (ikon segitiga amber di tengah).
+- **Kolom Kanan**:
+  - Pre-title: `GOGRIN BY THE BEST` (Warna amber, tracking lebar).
+  - Headline: "You'll be sure to have **an old fashioned time.**" ("an old" disorot dengan warna amber).
+  - Body paragraph mengenai suasana barbershop otentik.
+  - Testimonial card kecil: Foto avatar lingkaran, kutipan singkat, nama **Sakib Hosain**, titel *CEO of Organic*.
+  - Tombol CTA: Dark box dengan border tipis bertuliskan `READ MORE`.
+
+### 4.5 Services Grid ("Service We Provide")
+- **Header Section**: Centered pre-title `OUR SERVICE` dan judul `Service We Provide` (dengan kata "Provide" berwarna amber).
+- **Grid Layout**: 4 kartu sejajar horizontal (Responsive 4 kolom di desktop, 2 kolom di tablet, 1 kolom di mobile).
+- **Struktur Kartu**:
+  - Background dark translucent `#1C1D21` dengan border tipis warna emas (`rgba(212,154,88,0.3)`). Kartu aktif memiliki border lebih tegas.
+  - Ikon line-art emas di bagian atas (*Clipper, Razor/Beard trimmer, Shaver hammer/blade, Salon chair*).
+  - Judul layanan (`Clipper cut`, `Beard Trim`, `Face Shaver`, `Beauty Place`).
+  - Body paragraph singkat (Lorem ipsum / deskripsi ringkas).
+  - Link aksi di bawah: `READ MORE »` (warna emas/amber).
+- **Footer Section**: Tombol tengah outline kotak `ALL SERVICES`.
+
+---
+
+## 5. Spacing, Borders & Shadows
+- **Border Radius**:
+  - Tombol & Kartu: Subtly rounded / sharp corners (`2px - 4px`), memberikan kesan vintage maskulin yang tegas.
+  - Ikon Navigasi & Avatar: Fully circular (`border-radius: 50%`).
+- **Borders**: 1px solid `rgba(212, 154, 88, 0.3)` untuk komponen outline dan pembatas.
+- **Shadows**:
+  - Kartu & Hero elements: `0 10px 30px rgba(0, 0, 0, 0.6)` untuk memisahkan konten dari background fotografi.

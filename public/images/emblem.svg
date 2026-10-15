@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 130" fill="none">
+  <!-- Top decorative lines -->
+  <line x1="30" y1="22" x2="65" y2="22" stroke="#D49A58" stroke-width="1.2" stroke-linecap="round"/>
+  <circle cx="25" cy="22" r="2" fill="#D49A58"/>
+  <line x1="135" y1="22" x2="170" y2="22" stroke="#D49A58" stroke-width="1.2" stroke-linecap="round"/>
+  <circle cx="175" cy="22" r="2" fill="#D49A58"/>
+  
+  <!-- HAIR Text -->
+  <text x="100" y="27" text-anchor="middle" font-family="'Oswald', sans-serif" font-size="20" font-weight="700" letter-spacing="4" fill="#FFFFFF">HAIR</text>
+  
+  <!-- SALON Text -->
+  <text x="100" y="47" text-anchor="middle" font-family="'Oswald', sans-serif" font-size="16" font-weight="600" letter-spacing="6" fill="#FFFFFF">SALON</text>
+  
+  <!-- Middle Ribbon / Banner for EST. 1980 -->
+  <g transform="translate(100, 68)">
+    <!-- Amber banner lines -->
+    <path d="M-70 0 L-25 0 M25 0 L70 0" stroke="#D49A58" stroke-width="1.5" />
+    <polygon points="-75,-5 -65,0 -75,5" fill="#D49A58"/>
+    <polygon points="75,-5 65,0 75,5" fill="#D49A58"/>
+    
+    <!-- EST. & 1980 -->
+    <text x="-40" y="-4" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#D49A58">EST.</text>
+    <text x="40" y="-4" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#D49A58">1980</text>
+    
+    <!-- Center Crossed Scissors in Amber Diamond -->
+    <rect x="-14" y="-14" width="28" height="28" transform="rotate(45)" fill="#1C1D21" stroke="#D49A58" stroke-width="1.5" />
+    
+    <!-- Crossed scissors icon -->
+    <g transform="scale(0.55) translate(-16, -16)">
+      <!-- Scissor blades -->
+      <line x1="6" y1="6" x2="26" y2="26" stroke="#D49A58" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="6" y1="26" x2="26" y2="6" stroke="#D49A58" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="5" cy="5" r="3.5" stroke="#D49A58" stroke-width="2" fill="none"/>
+      <circle cx="5" cy="27" r="3.5" stroke="#D49A58" stroke-width="2" fill="none"/>
+      <circle cx="16" cy="16" r="2" fill="#D49A58" />
+    </g>
+  </g>
+  
+  <!-- Vintage Mustache Silhouette below -->
+  <path d="M72 104 C82 98 94 100 100 107 C106 100 118 98 128 104 C132 106 130 111 123 110 C114 108 107 114 100 111 C93 114 86 108 77 110 C70 111 68 106 72 104 Z" fill="#D49A58"/>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#D49A58" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Straight Razor -->
+    <path d="M12 48 L44 16 C48 12 54 12 56 14 C58 16 58 22 54 26 L22 58 Z" />
+    <path d="M16 44 L32 16 C34 12 40 10 44 14" stroke-dasharray="2 2" />
+    <circle cx="16" cy="48" r="2.5" fill="#D49A58" />
+  </svg>

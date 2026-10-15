@@ -1,0 +1,20 @@
+services:
+  semakna-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: semakna_barbershop
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=file:/app/prisma/dev.db
+      - JWT_SECRET=semakna_barbershop_secret_jwt_token_key_vintage_2024
+    volumes:
+      # Persistent volume for SQLite database
+      - sqlite_data:/app/prisma
+
+volumes:
+  sqlite_data:
+    driver: local

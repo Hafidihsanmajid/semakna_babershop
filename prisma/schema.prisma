@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// 1. Tabel Admin untuk Login
+model Admin {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String   // Hashed dengan bcrypt
+  name      String
+  createdAt DateTime @default(now())
+}
+
+// 2. Pengaturan Konten Statis/Single-Row (Hero & Story Section)
+model SiteConfig {
+  id                  Int      @id @default(1)
+  // Hero Section
+  emblemText          String   @default("HAIR SALON - EST. 1980")
+  heroTitle           String   @default("SEMAKNA HAIRCUT & SHAVES")
+  heroSubtitle        String   @default("Humour is powerful. It drives emotion and crafts timeless masculine style.")
+  heroBgUrl           String   @default("/images/hero-barber.jpg")
+  primaryCtaText      String   @default("ABOUT US")
+  secondaryCtaText    String   @default("NEWS FEED")
+
+  // Story / Feature Section
+  storyPreTitle       String   @default("SEMAKNA BY THE BEST")
+  storyTitle          String   @default("You'll be sure to have an old fashioned time.")
+  storyHighlightWord  String   @default("an old")
+  storyDescription    String
+  videoUrl            String?
+
+  // Testimonial di dalam Story Section
+  testimonialQuote    String
+  testimonialAuthor   String   @default("Sakib Hosain")
+  testimonialRole     String   @default("CEO of Organic")
+  testimonialAvatar   String   @default("/images/avatar.jpg")
+
+  updatedAt           DateTime @updatedAt
+}
+
+// 3. Circular Category Bar (6 Ikon Lingkaran)
+model CategoryPill {
+  id        Int     @id @default(autoincrement())
+  name      String  // e.g., "Hair Cutting", "Hair Washing"
+  iconName  String  // Nama ikon SVG / Lucide
+  isActive  Boolean @default(false)
+  order     Int     @default(0)
+}
+
+// 4. Kartu Layanan ("Service We Provide")
+model ServiceItem {
+  id          Int      @id @default(autoincrement())
+  title       String   // e.g., "Clipper cut", "Beard Trim"
+  description String   // Deskripsi singkat layanan
+  iconName    String   // Referensi ikon line-art emas
+  price       String?  // Opsional: e.g., "Rp 75.000"
+  isFeatured  Boolean  @default(false) // Menentukan border tegas aktif
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// 5. Galeri Foto ("Photo Showcase")
+model GalleryPhoto {
+  id            Int      @id @default(autoincrement())
+  title         String   // Judul foto e.g. "Classic Pompadour"
+  category      String   @default("haircut") // "haircut", "beard", "interior"
+  categoryLabel String   @default("Haircut") // Label tampilan e.g. "Haircut", "Beard Trim"
+  imageUrl      String   // URL gambar foto
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}

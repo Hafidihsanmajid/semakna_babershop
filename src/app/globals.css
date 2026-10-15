@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+:root {
+  --color-primary-amber: #D49A58;
+  --color-primary-amber-hover: #E0A96B;
+  --color-primary-amber-subtle: rgba(212, 154, 88, 0.15);
+  --color-bg-dark: #121315;
+  --color-bg-card: rgba(28, 29, 33, 0.75);
+  --color-bg-card-border: rgba(212, 154, 88, 0.35);
+  --color-surface-translucent: rgba(255, 255, 255, 0.08);
+
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B5B5B7;
+  --color-text-accent: #D49A58;
+  --color-text-muted: #7E8085;
+}
+
+@theme {
+  --color-primary-amber: #D49A58;
+  --color-primary-amber-hover: #E0A96B;
+  --color-primary-amber-subtle: rgba(212, 154, 88, 0.15);
+  --color-bg-dark: #121315;
+  --color-bg-card: rgba(28, 29, 33, 0.75);
+  --color-bg-card-border: rgba(212, 154, 88, 0.35);
+  --color-surface-translucent: rgba(255, 255, 255, 0.08);
+
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B5B5B7;
+  --color-text-accent: #D49A58;
+  --color-text-muted: #7E8085;
+
+  --font-display: var(--font-oswald), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+  --font-serif-accent: var(--font-playfair), serif;
+
+  --shadow-vintage: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+body {
+  background-color: #121315;
+  color: #FFFFFF;
+  font-family: var(--font-inter), sans-serif;
+  min-height: 100vh;
+}
