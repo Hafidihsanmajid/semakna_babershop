@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Search, ShoppingBag, Menu, X, Shield } from "lucide-react";
+import { ShoppingBag, Menu, X, Shield } from "lucide-react";
 
 interface NavbarProps {
   isLoggedIn?: boolean;
@@ -11,7 +11,6 @@ interface NavbarProps {
 
 export default function Navbar({ isLoggedIn = false }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
 
   const navLinks = [
     { label: "HOME", href: "#hero" },
@@ -57,20 +56,8 @@ export default function Navbar({ isLoggedIn = false }: NavbarProps) {
           ))}
         </nav>
 
-        {/* Right: Search, Cart, Hamburger & Admin Login */}
+        {/* Right: Cart, Hamburger & Admin Login */}
         <div className="flex items-center gap-3 sm:gap-4">
-          {/* Thin Search Input with Vertical Amber Line */}
-          <div className="hidden sm:flex items-center bg-[#1C1D21]/60 border-l-2 border-l-[#D49A58] border border-white/10 rounded-[2px] px-2.5 py-1 focus-within:border-[#D49A58] backdrop-blur-sm transition-colors">
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-20 md:w-28 focus:w-36 transition-all duration-200 bg-transparent text-xs text-white placeholder-[#7E8085] focus:outline-none"
-            />
-            <Search className="w-3.5 h-3.5 text-[#D49A58] flex-shrink-0 cursor-pointer hover:text-white transition-colors" />
-          </div>
-
           {/* Cart Icon */}
           <button
             className="hidden sm:flex p-1.5 text-white/80 hover:text-[#D49A58] transition-colors"
@@ -122,17 +109,6 @@ export default function Navbar({ isLoggedIn = false }: NavbarProps) {
                 {item.label}
               </Link>
             ))}
-          </div>
-
-          <div className="pt-2 flex items-center bg-[#121315] border-l-2 border-l-[#D49A58] border border-white/10 px-3 py-2 rounded-[2px]">
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-transparent text-xs text-white placeholder-[#7E8085] focus:outline-none"
-            />
-            <Search className="w-4 h-4 text-[#D49A58]" />
           </div>
         </div>
       )}
