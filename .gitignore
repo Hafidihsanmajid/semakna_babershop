@@ -38,6 +38,9 @@ yarn-error.log*
 # sqlite database - explicitly tracked
 !prisma/*.db
 !*.db
+*.db-journal
+*.db-wal
+*.db-shm
 
 # vercel
 .vercel
