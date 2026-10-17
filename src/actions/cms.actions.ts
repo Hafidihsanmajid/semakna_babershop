@@ -2,6 +2,7 @@
 
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import { parseMediaUrl } from "@/lib/media";
 
 export interface ActionResult {
   success: boolean;
@@ -60,6 +61,11 @@ export async function updateStoryAction(formData: FormData): Promise<ActionResul
     const storyDescription = formData.get("storyDescription")?.toString().trim() || "";
     const videoUrl = formData.get("videoUrl")?.toString().trim() || null;
 
+    const storyImage1 = formData.get("storyImage1")?.toString().trim() || "/images/story-1.jpg";
+    const storyImage2 = formData.get("storyImage2")?.toString().trim() || "/images/story-2.jpg";
+    const storyImage3 = formData.get("storyImage3")?.toString().trim() || "/images/story-3.jpg";
+    const storyImage4 = formData.get("storyImage4")?.toString().trim() || "/images/story-4.jpg";
+
     const testimonialQuote = formData.get("testimonialQuote")?.toString().trim() || "";
     const testimonialAuthor = formData.get("testimonialAuthor")?.toString().trim() || "Sakib Hosain";
     const testimonialRole = formData.get("testimonialRole")?.toString().trim() || "CEO of Organic";
@@ -73,6 +79,10 @@ export async function updateStoryAction(formData: FormData): Promise<ActionResul
         storyHighlightWord,
         storyDescription,
         videoUrl,
+        storyImage1,
+        storyImage2,
+        storyImage3,
+        storyImage4,
         testimonialQuote,
         testimonialAuthor,
         testimonialRole,
@@ -85,6 +95,10 @@ export async function updateStoryAction(formData: FormData): Promise<ActionResul
         storyHighlightWord,
         storyDescription,
         videoUrl,
+        storyImage1,
+        storyImage2,
+        storyImage3,
+        storyImage4,
         testimonialQuote,
         testimonialAuthor,
         testimonialRole,
@@ -232,10 +246,13 @@ export async function createGalleryPhotoAction(formData: FormData): Promise<Acti
     const category = formData.get("category")?.toString().trim() || "haircut";
     const categoryLabel = formData.get("categoryLabel")?.toString().trim() || "Haircut";
     const imageUrl = formData.get("imageUrl")?.toString().trim();
+    const explicitMediaType = formData.get("mediaType")?.toString().trim();
+    const parsed = parseMediaUrl(imageUrl || "", explicitMediaType);
+    const mediaType = parsed.isVideo ? "video" : "image";
     const order = Number(formData.get("order")) || 0;
 
     if (!title || !imageUrl) {
-      return { success: false, error: "Judul dan URL foto wajib diisi." };
+      return { success: false, error: "Judul dan URL/file media wajib diisi." };
     }
 
     await prisma.galleryPhoto.create({
@@ -244,15 +261,19 @@ export async function createGalleryPhotoAction(formData: FormData): Promise<Acti
         category,
         categoryLabel,
         imageUrl,
+        mediaType,
         order,
       },
     });
 
     revalidatePath("/");
     revalidatePath("/admin/photos");
-    return { success: true, message: "Foto galeri baru berhasil ditambahkan!" };
+    return {
+      success: true,
+      message: `${mediaType === "video" ? "Video" : "Foto"} galeri baru berhasil ditambahkan!`,
+    };
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : "Gagal menambahkan foto.";
+    const message = err instanceof Error ? err.message : "Gagal menambahkan media.";
     return { success: false, error: message };
   }
 }
@@ -264,10 +285,13 @@ export async function updateGalleryPhotoAction(formData: FormData): Promise<Acti
     const category = formData.get("category")?.toString().trim() || "haircut";
     const categoryLabel = formData.get("categoryLabel")?.toString().trim() || "Haircut";
     const imageUrl = formData.get("imageUrl")?.toString().trim();
+    const explicitMediaType = formData.get("mediaType")?.toString().trim();
+    const parsed = parseMediaUrl(imageUrl || "", explicitMediaType);
+    const mediaType = parsed.isVideo ? "video" : "image";
     const order = Number(formData.get("order")) || 0;
 
     if (!id || !title || !imageUrl) {
-      return { success: false, error: "Data foto tidak lengkap." };
+      return { success: false, error: "Data media tidak lengkap." };
     }
 
     await prisma.galleryPhoto.update({
@@ -277,15 +301,19 @@ export async function updateGalleryPhotoAction(formData: FormData): Promise<Acti
         category,
         categoryLabel,
         imageUrl,
+        mediaType,
         order,
       },
     });
 
     revalidatePath("/");
     revalidatePath("/admin/photos");
-    return { success: true, message: "Foto galeri berhasil diperbarui!" };
+    return {
+      success: true,
+      message: `${mediaType === "video" ? "Video" : "Foto"} galeri berhasil diperbarui!`,
+    };
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : "Gagal memperbarui foto.";
+    const message = err instanceof Error ? err.message : "Gagal memperbarui media.";
     return { success: false, error: message };
   }
 }
@@ -298,9 +326,9 @@ export async function deleteGalleryPhotoAction(id: number): Promise<ActionResult
 
     revalidatePath("/");
     revalidatePath("/admin/photos");
-    return { success: true, message: "Foto galeri berhasil dihapus!" };
+    return { success: true, message: "Media galeri berhasil dihapus!" };
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : "Gagal menghapus foto.";
+    const message = err instanceof Error ? err.message : "Gagal menghapus media.";
     return { success: false, error: message };
   }
 }

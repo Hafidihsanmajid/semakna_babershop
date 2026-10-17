@@ -119,11 +119,25 @@ export default function Footer() {
             <div className="space-y-2 text-xs font-body text-[#B5B5B7]">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#D49A58] flex-shrink-0 mt-0.5" />
-                <p>Jl. Vintage Heritage No. 88, Jakarta Selatan</p>
+                <a
+                  href="https://maps.google.com/?q=Gg.+Delima,+Metuk+Kidul,+Tegalyoso,+Kec.+Klaten+Sel.,+Kabupaten+Klaten,+Jawa+Tengah+57424"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#D49A58] transition-colors leading-relaxed"
+                >
+                  Gg. Delima, Metuk Kidul, Tegalyoso, Kec. Klaten Sel., Kabupaten Klaten, Jawa Tengah 57424
+                </a>
               </div>
               <div className="flex items-center gap-2 pt-1">
                 <Phone className="w-4 h-4 text-[#D49A58] flex-shrink-0" />
-                <p>+62 (021) 555-8989</p>
+                <a
+                  href="https://wa.me/62895413688911"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#D49A58] transition-colors"
+                >
+                  +62 895-4136-88911
+                </a>
               </div>
             </div>
           </div>
@@ -132,13 +146,6 @@ export default function Footer() {
         {/* Bottom copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#7E8085] gap-4">
           <p>© {new Date().getFullYear()} Semakna Barbershop. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <Link href="/login" className="hover:text-[#D49A58] transition-colors">
-              Admin Login
-            </Link>
-            <span>•</span>
-            <span className="text-[#D49A58]">EST. 1980</span>
-          </div>
         </div>
       </div>
     </footer>

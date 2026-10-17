@@ -34,6 +34,12 @@ model SiteConfig {
   storyDescription    String
   videoUrl            String?
 
+  // 4 Foto Kolase Story Section
+  storyImage1         String   @default("/images/story-1.jpg")
+  storyImage2         String   @default("/images/story-2.jpg")
+  storyImage3         String   @default("/images/story-3.jpg")
+  storyImage4         String   @default("/images/story-4.jpg")
+
   // Testimonial di dalam Story Section
   testimonialQuote    String
   testimonialAuthor   String   @default("Sakib Hosain")
@@ -65,13 +71,14 @@ model ServiceItem {
   updatedAt   DateTime @updatedAt
 }
 
-// 5. Galeri Foto ("Photo Showcase")
+// 5. Galeri Foto & Video ("Photo Showcase")
 model GalleryPhoto {
   id            Int      @id @default(autoincrement())
-  title         String   // Judul foto e.g. "Classic Pompadour"
+  title         String   // Judul foto / video e.g. "Classic Pompadour"
   category      String   @default("haircut") // "haircut", "beard", "interior"
   categoryLabel String   @default("Haircut") // Label tampilan e.g. "Haircut", "Beard Trim"
-  imageUrl      String   // URL gambar foto
+  imageUrl      String   // URL gambar foto atau file video
+  mediaType     String   @default("image") // "image" atau "video"
   order         Int      @default(0)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt

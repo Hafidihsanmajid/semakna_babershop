@@ -10,6 +10,10 @@ interface StorySectionProps {
   highlightWord?: string;
   description?: string;
   videoUrl?: string | null;
+  storyImage1?: string;
+  storyImage2?: string;
+  storyImage3?: string;
+  storyImage4?: string;
   testimonialQuote?: string;
   testimonialAuthor?: string;
   testimonialRole?: string;
@@ -22,6 +26,10 @@ export default function StorySection({
   highlightWord = "an old",
   description = "There's things people say in the barbershop they won't even say in their own living room, because it's just one of those zones where there's things people say in the barbershop they won't even say in their own living room, because it's just one of these zones where nobody's going. Come to the corner for a great cut.",
   videoUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  storyImage1 = "/images/story-1.jpg",
+  storyImage2 = "/images/story-2.jpg",
+  storyImage3 = "/images/story-3.jpg",
+  storyImage4 = "/images/story-4.jpg",
   testimonialQuote = "Barbershop. It's in their interests to find alternate vehicles to promote the shows.",
   testimonialAuthor = "Sakib Hosain",
   testimonialRole = "CEO of Organic",
@@ -59,9 +67,9 @@ export default function StorySection({
 
             {/* 2x2 Photo Collage Grid */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full max-w-md sm:max-w-lg relative z-10">
-              <div className="relative aspect-square rounded-[2px] overflow-hidden border border-white/10 shadow-xl group">
+              <div className="relative aspect-square rounded-[2px] overflow-hidden border border-white/10 shadow-xl group bg-black/40">
                 <Image
-                  src="/images/story-1.jpg"
+                  src={storyImage1 || "/images/story-1.jpg"}
                   alt="Barber Shaving Beard"
                   fill
                   sizes="(max-width: 640px) 45vw, (max-width: 1024px) 25vw, 260px"
@@ -70,9 +78,9 @@ export default function StorySection({
                 <div className="absolute inset-0 bg-black/25 group-hover:bg-transparent transition-colors" />
               </div>
 
-              <div className="relative aspect-square rounded-[2px] overflow-hidden border border-white/10 shadow-xl group">
+              <div className="relative aspect-square rounded-[2px] overflow-hidden border border-white/10 shadow-xl group bg-black/40">
                 <Image
-                  src="/images/story-2.jpg"
+                  src={storyImage2 || "/images/story-2.jpg"}
                   alt="Barber Styling Hair"
                   fill
                   sizes="(max-width: 640px) 45vw, (max-width: 1024px) 25vw, 260px"
@@ -81,9 +89,9 @@ export default function StorySection({
                 <div className="absolute inset-0 bg-black/25 group-hover:bg-transparent transition-colors" />
               </div>
 
-              <div className="relative aspect-square rounded-[2px] overflow-hidden border border-white/10 shadow-xl group">
+              <div className="relative aspect-square rounded-[2px] overflow-hidden border border-white/10 shadow-xl group bg-black/40">
                 <Image
-                  src="/images/story-3.jpg"
+                  src={storyImage3 || "/images/story-3.jpg"}
                   alt="Classic Haircut"
                   fill
                   sizes="(max-width: 640px) 45vw, (max-width: 1024px) 25vw, 260px"
@@ -92,9 +100,9 @@ export default function StorySection({
                 <div className="absolute inset-0 bg-black/25 group-hover:bg-transparent transition-colors" />
               </div>
 
-              <div className="relative aspect-square rounded-[2px] overflow-hidden border border-white/10 shadow-xl group">
+              <div className="relative aspect-square rounded-[2px] overflow-hidden border border-white/10 shadow-xl group bg-black/40">
                 <Image
-                  src="/images/story-4.jpg"
+                  src={storyImage4 || "/images/story-4.jpg"}
                   alt="Hot Towel Lather"
                   fill
                   sizes="(max-width: 640px) 45vw, (max-width: 1024px) 25vw, 260px"
@@ -169,7 +177,7 @@ export default function StorySection({
               </a>
 
               <a
-                href="https://wa.me/6281234567890?text=Halo%20Semakna%20Barbershop,%20saya%20ingin%20melakukan%20reservasi"
+                href="https://wa.me/62895413688911?text=Halo%20Semakna%20Barbershop,%20saya%20ingin%20melakukan%20reservasi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#25D366] hover:bg-[#20BA5A] text-white font-display font-bold text-xs tracking-[0.2em] uppercase rounded-[2px] transition-all duration-200 shadow-[0_4px_15px_rgba(37,211,102,0.35)]"

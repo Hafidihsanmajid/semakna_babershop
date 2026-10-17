@@ -59,7 +59,7 @@ export default async function AdminLayout({
                 className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-display font-semibold tracking-wider text-white hover:text-[#D49A58] rounded-[2px] transition-colors"
               >
                 <Camera className="w-3.5 h-3.5 text-[#D49A58]" />
-                GALERI FOTO
+                GALERI FOTO & VIDEO
               </Link>
             </nav>
           </div>

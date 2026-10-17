@@ -65,6 +65,10 @@ export default async function HomePage() {
               highlightWord={siteConfig?.storyHighlightWord}
               description={siteConfig?.storyDescription}
               videoUrl={siteConfig?.videoUrl}
+              storyImage1={siteConfig?.storyImage1}
+              storyImage2={siteConfig?.storyImage2}
+              storyImage3={siteConfig?.storyImage3}
+              storyImage4={siteConfig?.storyImage4}
               testimonialQuote={siteConfig?.testimonialQuote}
               testimonialAuthor={siteConfig?.testimonialAuthor}
               testimonialRole={siteConfig?.testimonialRole}

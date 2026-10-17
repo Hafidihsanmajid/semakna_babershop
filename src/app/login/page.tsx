@@ -113,9 +113,6 @@ export default function LoginPage() {
                   className="w-full bg-[#121315] border border-white/10 focus:border-[#D49A58] rounded-[2px] pl-10 pr-4 py-2.5 text-sm text-white placeholder-[#7E8085] focus:outline-none transition-colors"
                 />
               </div>
-              <p className="text-[11px] text-[#7E8085] mt-1.5 italic">
-                Default kredensial: <span className="text-[#D49A58]">admin</span> / <span className="text-[#D49A58]">semakna123</span>
-              </p>
             </div>
 
             <button
